@@ -1,5 +1,10 @@
 MIT License
 
+Copyright (c) 2025 Aoi Kondo
+
+The software is based on the kasugi/scrapbox-python and our version is changed many programs for developing CLI reader of Consense.
+The original repository is also published under the MIT License following below:
+
 Copyright (c) 2019 HelloRusk
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
