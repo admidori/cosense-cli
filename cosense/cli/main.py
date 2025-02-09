@@ -9,9 +9,7 @@ def command_search(args):
     cosense.cli.search.search(args)
 
 def command_version(args):
-    print("""cosense-python version 0.1.0
-This pakage is developing now. Please contribute to this package via GitHub if you find any bugs.
-GitHub:admidori/cosense-python""")
+    print("cosense-cli version" + cosense.__version__)
 
 def command_help(args):
     print(parser.parse_args([args.command, '--help']))
