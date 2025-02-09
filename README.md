@@ -6,11 +6,11 @@
 The unofficial CLI reader of the Cosense.  
 This project uses [Cosense API](https://scrapbox.io/help-jp/API).
 
-## Installation
+![](/docs/gif/gif1.gif)
 
+## Installation
 ```sh
 pip install cosense
-# or `pipenv install cosense`
 ```
 
 ## Basic Use
@@ -53,5 +53,5 @@ project = client.get(f"/{your_project_name}/")
 ```
 
 # Lisence
-This project is published under the [MIT lisence](https://github.com/admidori/cosense-cli/blob/main/LICENCE).  
+This project is published under the [MIT lisence](https://github.com/admidori/cosense-cli/blob/main/LICENSE).  
 And this repository is based on [kaisugi/scrapbox-python](https://github.com/kaisugi/scrapbox-python).  
