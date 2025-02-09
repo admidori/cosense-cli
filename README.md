@@ -1,7 +1,7 @@
 # cosense-cli
-[![CI](https://github.com/admidori/cosense-cli/actions/ci.yaml/badge.svg)](https://github.com/admidori/cosense-cli/actions/ci.yaml)
+[![CI](https://github.com/admidori/cosense-cli/actions/workflows/ci.yaml/badge.svg)](https://github.com/admidori/cosense-cli/actions/workflows/ci.yaml)
 [![PyPI version](https://badge.fury.io/py/cosense.svg)](https://badge.fury.io/py/cosense)
-[![MIT License](https://img.shields.io/github/license/admidori/cosense-cli?label=License)](https://github.com/admidori/cosense-cli/blob/main/LICENCE)
+[![MIT License](https://img.shields.io/github/license/admidori/cosense-cli?label=License)](https://github.com/admidori/cosense-cli/blob/main/LICENSE)
 
 The unofficial CLI reader of the Cosense.
 This project uses [Cosense API](https://scrapbox.io/help-jp/API).
