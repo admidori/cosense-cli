@@ -77,7 +77,6 @@ def fetch_page(lock, client, project, pages, skip_count):
 
 def fetch_text(lock, client, project, page, texts):
     text = client.get(project + "/" + page["title"] + "/text")
-    print("Fetched text")
     with lock:
         texts.append(text)
 
@@ -87,44 +86,58 @@ def select_pages(stdscr, args):
     page_number = 0
     selected = 1
 
+    # Initialize client
     if args.auth is None:
         client = cosense.Client()
     else:
         client = cosense.Client(sid=args.auth)
 
     # Fetch the first page to get the total number of pages
-    pj = client.get(args.project, limit=1)
-    page_total = math.ceil(int(pj["count"]) / 100)
+    pj = client.get(args.project, limit=0)
+    page_total_pj = math.ceil(int(pj["count"]) / 100)
 
     curses.curs_set(0)
     stdscr.keypad(1)
 
     # Fetch pages and texts
     lock = threading.Lock()
-    thread = threading.Thread(target=fetch, args=(lock, client, args.project, page_total, pages, texts), daemon=True)
+    thread = threading.Thread(target=fetch, args=(lock, client, args.project, page_total_pj, pages, texts), daemon=True)
     thread.start()
 
     time.sleep(1)
     stdscr.clear()
 
     while True:
+        # Check terminal size
         height, width = stdscr.getmaxyx()
         if height < 10 or width < 50:
             print("Please resize the terminal to at least 50x10")
             sys.exit(1)
-        
+        DISPLAY_PAGES = 45
+        page_total = math.ceil((page_total_pj * 100) / DISPLAY_PAGES)
+
         # Menubar
+        with lock:
+            len_pages = len(pages)
+            len_texts = len(texts)
+
+        download_status = ""
+        if len_pages < page_total:
+            download_status = "Downloading pages: " + "-"*int((len_pages + 1) / 10) + " "*int((page_total / 10) - ((len_pages + 1) / 10))
+        elif len_texts < len_pages:
+            download_status = "Donwloading texts: " + "-"*int((len_texts + 1) / 10) + " "*int((len_pages / 10) - ((len_texts + 1) / 10))
+        else:
+            download_status = "'J' to output the project to json file"
+        stdscr.addstr(height - 2, 0, f"Project: {args.project} Page: {page_number+1}/{page_total} {download_status}", curses.A_REVERSE)
         stdscr.addstr(height - 1, 0, "quit: 'q' / read: 'Enter' / select article: 'j' or 'k' / move page: 'h' or 'l'", curses.A_REVERSE)
         # Infobar
         infobar = "   " + ljust("Title", 40) + ljust("Created", 15) + ljust("Updated", 15)
         stdscr.addstr(1, 0, infobar, curses.A_BOLD)
         
         with lock:
-            if page_number == 0:
-                split_pages = pages[0:45]   # 45 is the number of pages displayed on one page
-            else:
-                split_pages = pages[45*page_number:45*(page_number+1)]
+            split_pages = pages[DISPLAY_PAGES*page_number:DISPLAY_PAGES*(page_number+1)]
 
+        # Handle key input
         key = stdscr.getkey()
         if key == "k":
             selected = max(1, selected - 1)
