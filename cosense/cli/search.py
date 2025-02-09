@@ -138,7 +138,7 @@ def select_pages(stdscr, args):
             selected = 1
         elif key == "\n":
             pagenum = 45 * page_number + selected - 1
-            read_page(client, args.project, pages[selected - 1], texts[pagenum], stdscr)
+            read_page(pages[selected - 1], texts[pagenum], stdscr)
         elif key == "q":
             sys.exit(0)
         else:
