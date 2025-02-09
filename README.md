@@ -1,9 +1,9 @@
 # cosense-cli
 [![CI](https://github.com/admidori/cosense-cli/actions/workflows/ci.yaml/badge.svg)](https://github.com/admidori/cosense-cli/actions/workflows/ci.yaml)
 [![PyPI version](https://badge.fury.io/py/cosense.svg)](https://badge.fury.io/py/cosense)
-[![MIT License](https://img.shields.io/github/license/admidori/cosense-cli?label=License)](https://github.com/admidori/cosense-cli/blob/main/LICENSE)
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/admidori/cosense-cli/blob/main/LICENSE)
 
-The unofficial CLI reader of the Cosense.
+The unofficial CLI reader of the Cosense.  
 This project uses [Cosense API](https://scrapbox.io/help-jp/API).
 
 ## Installation
@@ -14,7 +14,7 @@ pip install cosense
 ```
 
 ## Basic Use
-### commandline
+### Commandline
 ```sh
 cosense search help-jp
 ```
@@ -32,6 +32,7 @@ project = client.get("/help-jp/")
 1. Access your Cosense project page
 2. Check Cookies information (In Chrome, press F12 and show the "Application" tab)
 3. Copy value of "connect.sid"
+  
 ![](/docs/img/img1.png)
 
 ### Commandline
@@ -52,5 +53,5 @@ project = client.get(f"/{your_project_name}/")
 ```
 
 # Lisence
-This project is published under the [MIT lisence](https://github.com/admidori/cosense-cli/blob/main/LICENCE).
-And this repository is based on [kaisugi/scrapbox-python](https://github.com/kaisugi/scrapbox-python).
+This project is published under the [MIT lisence](https://github.com/admidori/cosense-cli/blob/main/LICENCE).  
+And this repository is based on [kaisugi/scrapbox-python](https://github.com/kaisugi/scrapbox-python).  
