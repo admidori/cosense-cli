@@ -13,6 +13,18 @@ This project uses [Cosense API](https://scrapbox.io/help-jp/API).
 pip install cosense
 ```
 
+### For Windows users
+If you install the CLI tool created by Python for the first time, this program may be not operation.  
+Please execute the below on your PowerShell before execute this program.  
+```sh
+$env:PATH += ";" + (Get-Item (python -m site --user-site)).parent.fullname + "\Scripts"
+```
+(Reference: https://zenn.dev/kumazo/articles/35215498b86939)
+
+#### Note
+Windows support is not enough. So sometimes layout is broken and occur any problem.  
+If you are Windows hacker, Please contribute our repository ;)  
+
 ## Basic Use
 ### Commandline
 ```sh
@@ -31,14 +43,14 @@ project = client.get("/help-jp/")
 ### Check the your token
 1. Access your Cosense project page
 2. Check Cookies information (In Chrome, press F12 and show the "Application" tab)
-3. Copy value of "connect.sid"
+3. Copy value of `connect.sid`
   
 ![](/docs/img/img1.png)
 
 ### Commandline
 ```sh
 # Replace the "your token" to "connect.sid"
-cosense serach "your project name" --auth "your token"
+cosense search "your project name" --auth "your token"
 ```
 
 ### Use Cosense API in Python
