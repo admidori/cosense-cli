@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install (local)
-        run: pip install -y .
+        run: pip install .
 
       - name: Install (pypi)
         run: pip install -y cosense
