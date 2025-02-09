@@ -1,6 +1,5 @@
 import curses
 import sys
-from turtle import st
 import cosense
 from functools import partial
 import locale
