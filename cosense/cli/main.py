@@ -1,8 +1,12 @@
 import argparse
+import cosense.cli.search
 
 # Initialize the parser
 parser = argparse.ArgumentParser(description="The CLI reader for cosense")
 subparsers = parser.add_subparsers()
+
+def command_search(args):
+    cosense.cli.search.search(args)
 
 def command_version(args):
     print("""cosense-python version 0.1.0
@@ -15,8 +19,10 @@ def command_help(args):
 def main():
     # Create the parser for the "search" command
     parser_search = subparsers.add_parser("search", help="Search for a keyword")
+    parser_search.add_argument("project", type=str, help="The project to search in")
     parser_search.add_argument("--auth", type=str, help="Input an authentication token")
-    
+    parser_search.set_defaults(handler=command_search)
+
     # Create the parser for the "version" command
     parser_version = subparsers.add_parser("version", help="Print the version of cosense")
     parser_version.set_defaults(handler=command_version)
