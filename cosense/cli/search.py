@@ -1,6 +1,5 @@
 import curses
 import sys
-from unittest import skip
 import cosense
 from functools import partial
 import locale
@@ -61,7 +60,7 @@ def ljust(string,length):
 
 def fetch(lock, client, project, page_total, pages, texts):
     for i in range(page_total):
-        fetch_page(lock, client, project, pages, (i+1)*100)
+        fetch_page(lock, client, project, pages, i*100)
         time.sleep(0.5)
     
     cnt = 0
