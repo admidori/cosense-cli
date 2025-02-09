@@ -122,10 +122,10 @@ def select_pages(stdscr, args):
     while True:
         # Check terminal size
         height, width = stdscr.getmaxyx()
-        if height < 10 or width < 50:
-            print("Please resize the terminal to at least 50x10")
+        if height < 20 or width < 100:
+            print("Please resize the terminal to at least 100x20")
             sys.exit(1)
-        DISPLAY_PAGES = 45
+        DISPLAY_PAGES = height - 8
         page_total = math.ceil((page_total_pj * 100) / DISPLAY_PAGES)
 
         # Menubar
@@ -139,7 +139,7 @@ def select_pages(stdscr, args):
             download_status = "Donwloading texts: " + "-"*int((len_texts + 1) / 10) + " "*int((len_pages / 10) - ((len_texts + 1) / 10))
         else:
             IS_FETCHED = True
-            download_status = "'J' to output the project to json file"
+            download_status = "Downloaded all pages and texts"
         stdscr.addstr(height - 2, 0, f"Project: {args.project} Page: {page_number+1}/{page_total} {download_status}", curses.A_REVERSE)
         stdscr.addstr(height - 1, 0, "quit: 'q' / read: 'Enter' / select article: 'j' or 'k' / move page: 'h' or 'l'", curses.A_REVERSE)
         # Infobar
