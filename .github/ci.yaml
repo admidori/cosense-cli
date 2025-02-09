@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install (local)
+        run: pip install -y .
+
+      - name: Install (pypi)
+        run: pip install -y cosense
+
+      - name: Uninstall
+        run: pip uninstall -y cosense
