@@ -19,7 +19,7 @@ jobs:
         run: pip install .
 
       - name: Install (pypi)
-        run: pip install -y cosense
+        run: pip install cosense
 
       - name: Uninstall
         run: pip uninstall -y cosense
