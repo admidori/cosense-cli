@@ -1,7 +1,7 @@
 from setuptools import setup
 setup(
     name="cosense",
-    version="0.2.0",
+    version="0.2.1.dev1",
     author="Aoi Kondo",
     author_email="agotadmidori@gmail.com",
     description="The CLI reader for cosense",
