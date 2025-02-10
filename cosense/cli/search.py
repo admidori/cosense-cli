@@ -169,7 +169,7 @@ def select_pages(stdscr, args):
         elif key == "q":
             sys.exit(0)
         elif key == "J":
-            with open("output.json", "w") as f:
+            with open("output.json", "w", encoding="utf-8_sig") as f:
                 output_json = {
                     "name": "",
                     "displayName":"",
