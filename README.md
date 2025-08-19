@@ -14,16 +14,16 @@ pip install cosense
 ```
 
 ### For Windows users
-If you install the CLI tool created by Python for the first time, this program may be not operation.  
-Please execute the below on your PowerShell before execute this program.  
+If you install the CLI tool created by Python for the first time, this program may not be operational.  
+Please execute the below on your PowerShell before executing this program.  
 ```sh
 $env:PATH += ";" + (Get-Item (python -m site --user-site)).parent.fullname + "\Scripts"
 ```
 (Reference: https://zenn.dev/kumazo/articles/35215498b86939)
 
 #### Note
-Windows support is not enough. So sometimes layout is broken and occur any problem.  
-If you are Windows hacker, Please contribute our repository ;)  
+Windows support is not enough. So sometimes the layout is broken.  
+If you are a Windows hacker, please contribute to our repository ;)  
 
 ## Basic Use
 ### Commandline
@@ -40,16 +40,16 @@ project = client.get("/help-jp/")
 ```
 
 ## Advance Use (For private project)
-### Check the your token
+### Check your token
 1. Access your Cosense project page
 2. Check Cookies information (In Chrome, press F12 and show the "Application" tab)
-3. Copy value of `connect.sid`
+3. Copy the value of `connect.sid`
   
 ![](/docs/img/img1.png)
 
 ### Commandline
 ```sh
-# Replace the "your token" to "connect.sid"
+# Replace the "your token" with "connect.sid"
 cosense search "your project name" --auth "your token"
 ```
 
@@ -57,13 +57,13 @@ cosense search "your project name" --auth "your token"
 ```python
 import cosense
 
-# Define sid on value of "connect.sid"
+# Define sid on the value of "connect.sid"
 sid = "s%3Ag8zuk3JlDhp1t2o45eE5Aj3kK3yHkT_N.ipbmkRVRIP..."
 your_project_name = "project"
 client = cosense.Client(sid = sid)
 project = client.get(f"/{your_project_name}/")
 ```
 
-# Lisence
-This project is published under the [MIT lisence](https://github.com/admidori/cosense-cli/blob/main/LICENSE).  
-And this repository is based on [kaisugi/scrapbox-python](https://github.com/kaisugi/scrapbox-python).  
+# License
+This project is published under the [MIT license](https://github.com/admidori/cosense-cli/blob/main/LICENSE).  
+This repository is based on [kaisugi/scrapbox-python](https://github.com/kaisugi/scrapbox-python).  
