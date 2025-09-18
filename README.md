@@ -3,8 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/cosense.svg)](https://badge.fury.io/py/cosense)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/admidori/cosense-cli/blob/main/LICENSE)
 
-The unofficial CLI reader of the Cosense.  
-This project uses [Cosense API](https://scrapbox.io/help-jp/API).
+The unofficial CLI reader of the Cosense. This project uses [Cosense API](https://scrapbox.io/help-jp/API).
 
 ![](/docs/gif/gif1.gif)
 
@@ -14,16 +13,11 @@ pip install cosense
 ```
 
 ### For Windows users
-If you install the CLI tool created by Python for the first time, this program may not be operational.  
-Please execute the below on your PowerShell before executing this program.  
+If you install the CLI tool created by Python for the first time, this program may not be operational. Please execute the below on your PowerShell before executing this program.  
 ```sh
 $env:PATH += ";" + (Get-Item (python -m site --user-site)).parent.fullname + "\Scripts"
 ```
 (Reference: https://zenn.dev/kumazo/articles/35215498b86939)
-
-#### Note
-Windows support is not enough. So sometimes the layout is broken.  
-If you are a Windows hacker, please contribute to our repository ;)  
 
 ## Basic Use
 ### Commandline
@@ -65,5 +59,4 @@ project = client.get(f"/{your_project_name}/")
 ```
 
 # License
-This project is published under the [MIT license](https://github.com/admidori/cosense-cli/blob/main/LICENSE).  
-This repository is based on [kaisugi/scrapbox-python](https://github.com/kaisugi/scrapbox-python).  
+This project is published under the [MIT license](https://github.com/admidori/cosense-cli/blob/main/LICENSE). This repository is based on [kaisugi/scrapbox-python](https://github.com/kaisugi/scrapbox-python).  
